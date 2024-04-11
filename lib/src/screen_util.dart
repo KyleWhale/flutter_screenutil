@@ -60,8 +60,7 @@ class ScreenUtil {
   ]) async {
     final binding = WidgetsFlutterBinding.ensureInitialized();
     window ??= WidgetsBinding.instance.platformDispatcher.implicitView;
-
-    if (window?.physicalGeometry.isEmpty == true) {
+    if (window?.physicalSize.isEmpty == true) {
       return Future.delayed(duration, () async {
         binding.deferFirstFrame();
         await ensureScreenSize(window, duration);
